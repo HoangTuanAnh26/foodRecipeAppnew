@@ -1,0 +1,352 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.app-header {
+  position: fixed;
+  /* 🔥 cố định */
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background-color: blueviolet;
+  color: white;
+  font-size: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px auto;
+  z-index: 1000;
+}
+
+.title-header {
+  text-align: right;
+  margin-left: 20px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+
+}
+
+/* Home */
+.slide-container {
+  /* display: flex;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center; */
+  margin-top: 200px;
+}
+
+.image-wrapper {
+  display: flex;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+}
+
+.slide-card {
+  padding: 0;
+  margin: 0;
+}
+
+.slide-image {
+  width: 600px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.home-title {
+  font-size: 55px;
+  text-align: center;
+}
+
+.categories-item .item-card {
+  display: flex;
+  justify-content: center;
+  /* căn giữa ngang */
+  align-items: center;
+  /* căn giữa dọc */
+}
+
+.categories-item {
+  display: grid;
+  /* Chia làm 4 cột đều nhau */
+  grid-template-columns: repeat(4, 1fr);
+  /* Khoảng cách giữa các khung */
+  gap: 16px;
+  width: 100%;
+  padding: 10px;
+}
+
+.item-card {
+  border: 1px solid #e0e0e0;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  /* display: flex;
+  justify-content: center; */
+  width: 300px;
+}
+
+.categories-item {
+  display: flex;
+  justify-content: center;
+}
+
+.category-image {
+  width: 300px;
+  height: auto;
+  /* object-fit: cover; */
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+/* Tiêu đề nằm ở dưới cùng */
+.home-title {
+  order: 2;
+  /* Ép tiêu đề xuống dưới */
+  font-size: 35px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* CategoryDetails */
+.banner-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 200px;
+  padding: 70px;
+}
+
+.banner-image {
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.category-title {
+  font-size: 55px;
+}
+
+/* Lưới danh sách món ăn */
+.meals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* Tạo 2 cột đều nhau */
+  gap: 15px;
+  padding: 15px;
+}
+
+/* Thẻ món ăn (Card) */
+.meal-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Tạo bóng đổ nhẹ cho đẹp */
+  display: flex;
+  flex-direction: column;
+}
+
+.meal-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  /* Đảm bảo ảnh không bị méo */
+}
+
+.meal-title-container {
+  background-color: #ff5252;
+  /* Nền màu đỏ giống mockup */
+  padding: 10px;
+  flex-grow: 1;
+  /* Để phần đỏ phủ kín phần dưới thẻ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.meal-title {
+  color: white;
+  font-size: 19px;
+  margin: 0;
+  text-align: center;
+}
+
+.app-footer {
+  width: 100%;
+  height: 100px;
+  background-color: grey;
+  color: white;
+  font-size: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.pagination-buttons {
+  display: flex;
+  justify-content: center;
+  padding: 24px 24px;
+  gap: 20px;
+}
+
+/* RecipeDetails */
+.recipe-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 200px;
+  padding: 22px;
+}
+
+.recipe-image {
+  width: 500px;
+  height: 500px;
+}
+
+.recipe-title {
+  text-align: center;
+}
+
+.ingredients-section {
+  padding-left: 15px;
+}
+
+.instructions-section {
+  padding: 15px;
+  line-height: 1.8;
+  font-size: 16px;
+  text-align: justify;
+}
+
+.instructions-text {}
+
+
+@media screen and (max-width: 768px) {
+  .app-header {
+    height: auto;
+    flex-direction: column;
+    font-size: 25px;
+  }
+
+  .title-header {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-item {
+    font-size: 20px;
+  }
+
+  .app-footer {
+    font-size: 20px;
+  }
+
+  .image-wrapper {
+    transform: scale(0.5);
+  }
+
+  .slide-container {
+    margin-top: -35px;
+  }
+
+  .home-title {
+    font-size: 25px;
+    margin-top: -120px;
+  }
+
+  .categories-item {
+    margin-top: 25px;
+  }
+
+  .category-image {
+    transform: scale(0.9);
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+  }
+
+  .app-footer {
+    margin-top: 10px;
+  }
+
+  .banner-section {
+    margin-top: -130px;
+    padding: 0;
+  }
+
+  .banner-image {
+    transform: scale(0.3);
+  }
+
+  .category-title {
+    font-size: 25px;
+    margin-top: -230px;
+  }
+
+  .meals-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Tạo 2 cột đều nhau */
+    gap: 10px;
+    padding: 5px;
+  }
+
+  .meal-card {
+    height: 120px;
+    width: 178px;
+  }
+
+  .meal-title-container {
+    display: none;
+  }
+
+  .recipe-banner {
+    margin-top: 0;
+  }
+
+  .recipe-image {
+    transform: scale(0.6);
+  }
+
+  .recipe-title {
+    margin-top: -90px;
+    transform: scale(0.8);
+  }
+
+  .ingredients-section h2, .instructions-section h2{
+    transform: scale(0.8);
+    margin-left: -37px;
+  }
+}

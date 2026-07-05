@@ -1,0 +1,35 @@
+backend/
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── AuthController.php
+│   │   │   ├── FavoriteController.php
+│   │   │   └── SearchController.php
+│   │   ├── Middleware/                                                      Lưu trữ lịch sử thiết kế DB
+│   │   │   └── (auth:sanctum có sẵn)
+│   │   └── Requests/                                                        Người gác cổng nghiêm ngặt
+│   │       ├── Auth/
+│   │       │   ├── RegisterRequest.php
+│   │       │   └── LoginRequest.php
+│   │       └── Favorite/
+│   │           └── StoreFavoriteRequest.php
+│   ├── Models/
+│   │   ├── User.php
+│   │   └── Favorite.php
+│   └── Services/          ← tách business logic ra khỏi Controller 
+│       ├── AuthService.php
+│       ├── FavoriteService.php
+│       └── MealDbService.php  ← gọi TheMealDB API
+│
+├── database/
+│   └── migrations/
+│       ├── ..._create_users_table.php
+│       └── ..._create_favorites_table.php
+│
+├── routes/
+│   └── api.php
+│
+└── tests/                                                                    
+    └── Feature/
+        ├── AuthTest.php
+        └── FavoriteTest.php
