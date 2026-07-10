@@ -15,11 +15,7 @@ backend/
 │   │           └── StoreFavoriteRequest.php
 │   ├── Models/
 │   │   ├── User.php
-│   │   ├── Favorite.php
-│       └── Category.php, Meal.php, Ingredient.php, MealIngredient.php
-
-        app/Console/Commands/CloneMealDataCommand.php (Tầng Command mới)
-│
+│   │   └── Favorite.php
 │   └── Services/          ← tách business logic ra khỏi Controller 
 │       ├── AuthService.php
 │       ├── FavoriteService.php
