@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 * {
   box-sizing: border-box;
 }
@@ -14,9 +16,8 @@ body {
 }
 
 /* Header */
-.app-header {
+/* .app-header {
   position: fixed;
-  /* 🔥 cố định */
   top: -50px;
   left: 0;
   width: 100%;
@@ -46,8 +47,7 @@ body {
   color: white;
   font-size: 35px;
   cursor: pointer;
-
-}
+} */
 
 /* Home */
 .slide-container {
