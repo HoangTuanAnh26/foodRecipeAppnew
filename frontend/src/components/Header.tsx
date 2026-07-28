@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 
 
 const Header: React.FC = () => {
 
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
-        <header className="sticky top-0 z-50 flex h-32 max-w-7xl mx-auto items-center justify-between border-b bg-white/80 px-6 backdrop-blur-md dark:border-slate-800/80">
-            <h1 className="text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white hover:opacity-90 transition-opacity">Food Recipe</h1>
-            <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600 dark:text-slate-300">
-                {/* Can can ngang */}
-                {/* <a className="nav-item" href="#">Trang chủ</a> */}
-                <Link className="transition-colors hover:text-indigo-600 dark:hover:text-indigo-400" to="/">Home</Link>
-                <a className="transition-colors hover:text-indigo-600 dark:hover:text-indigo-400" href="#">Favorites</a>
-                {/* <a
-                    href="#"
+        <header className="z-50 max-w-7xl mx-auto border-b-0 md:border-b px-6">
+            <div className="flex h-16 md:h-32 items-center justify-between">
+                <Link to="/" className="text-2xl md:text-5xl font-extrabold tracking-tight text-slate-900 hover:opacity-90 transition-opacity">Food Recipe</Link>
+                <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600 dark:text-slate-300">
+                    <Link className="transition-colors hover:text-indigo-600 dark:text-black" to="/">Home</Link>
+                    <Link className="transition-colors hover:text-indigo-600 dark:text-black" to="#">Favorites</Link>
+                    {/* <a
+                    to="#"
                     className="nav-item"
                     style={{ marginRight: "20px" }}
                     onClick={(e) => {
@@ -24,15 +29,48 @@ const Header: React.FC = () => {
                 >
                     Back
                 </a> */}
-                <a className="transition-colors hover:text-indigo-600 dark:hover:text-indigo-400" href="#">Category Details</a>
-                <a className="transition-colors hover:text-indigo-600 dark:hover:text-indigo-400" href="#">Profile</a>
+                    <Link className="transition-colors hover:text-indigo-600 dark:text-black" to="#">Category Details</Link>
+                    <Link className="transition-colors hover:text-indigo-600 dark:text-black" to="#">Profile</Link>
 
-                <div className="flex items-center gap-5">
-                    <button className="text-slate-600 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400 transition-colors text-lg p-1">
+                    <div className="flex items-center gap-5">
+                        <button className="text-slate-600 hover:text-indigo-600 dark:text-black transition-colors text-lg p-1">
+                            <FaSearch className="hover:text-indigo-600 dark:text-black" />
+                        </button>
+                    </div>
+                </nav>
+
+                {/* Mobile */}
+                <div className="md:hidden flex items-center gap-4">
+                    <button className="text-black text-sm p-1">
                         <FaSearch />
                     </button>
+
+                    <Link to="#" className="text-sm font-medium text-black">
+                        Profile
+                    </Link>
+
+                    <button onClick={toggleMenu} className="text-sm text-black focus:outline-none">
+                        {isOpen ? <FaTimes /> : <FaBars />}
+                    </button>
                 </div>
-            </nav>
+
+            </div>
+            {/* Menu xổ xuống trên Mobile */}
+            {isOpen && (
+                <nav className="md:hidden flex flex-col gap-4 pb-6 pt-2 text-sm font-medium text-black border-t border-slate-100">
+                    <Link to="/" onClick={() => setIsOpen(false)}>
+                        Home
+                    </Link>
+
+                    <Link to="#" onClick={() => setIsOpen(false)}>
+                        Favorites
+                    </Link>
+
+                    <Link to="#" onClick={() => setIsOpen(false)}>
+                        Category Details
+                    </Link>
+                </nav>
+            )}
         </header>
     );
 };
