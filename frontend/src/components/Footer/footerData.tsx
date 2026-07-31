@@ -38,3 +38,4 @@ export const SOCIAL_LINKS = [
     { icon: SlSocialTwitter, href: '#', label: 'Twitter' },
     { icon: SlSocialYoutube, href: '#', label: 'Youtube' },
 ];
+

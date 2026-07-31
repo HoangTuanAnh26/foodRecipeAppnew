@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
 
 export default Footer;
 
-// Chia text o footer chua hop 
+// Tien ich dich
+// Tao thu muc fooder
 
-// Code chua doc ky
 
