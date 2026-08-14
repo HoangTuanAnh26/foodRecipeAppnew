@@ -134,69 +134,6 @@ body {
   margin-top: 10px;
 }
 
-/* CategoryDetails */
-.banner-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 200px;
-  padding: 70px;
-}
-
-.banner-image {
-  width: auto;
-  height: auto;
-  display: block;
-}
-
-.category-title {
-  font-size: 55px;
-}
-
-/* Lưới danh sách món ăn */
-.meals-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  /* Tạo 2 cột đều nhau */
-  gap: 15px;
-  padding: 15px;
-}
-
-/* Thẻ món ăn (Card) */
-.meal-card {
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  /* Tạo bóng đổ nhẹ cho đẹp */
-  display: flex;
-  flex-direction: column;
-}
-
-.meal-image {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  /* Đảm bảo ảnh không bị méo */
-}
-
-.meal-title-container {
-  background-color: #ff5252;
-  /* Nền màu đỏ giống mockup */
-  padding: 10px;
-  flex-grow: 1;
-  /* Để phần đỏ phủ kín phần dưới thẻ */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.meal-title {
-  color: white;
-  font-size: 19px;
-  margin: 0;
-  text-align: center;
-}
-
 .app-footer {
   width: 100%;
   height: 100px;
@@ -313,36 +250,6 @@ body {
   .category-title {
     font-size: 25px;
     margin-top: -230px;
-  }
-
-  .meals-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    /* Tạo 2 cột đều nhau */
-    gap: 10px;
-    padding: 5px;
-  }
-
-  .meal-card {
-    height: 120px;
-    width: 178px;
-  }
-
-  .meal-title-container {
-    display: none;
-  }
-
-  .recipe-banner {
-    margin-top: 0;
-  }
-
-  .recipe-image {
-    transform: scale(0.6);
-  }
-
-  .recipe-title {
-    margin-top: -90px;
-    transform: scale(0.8);
   }
 
   .ingredients-section h2, .instructions-section h2{

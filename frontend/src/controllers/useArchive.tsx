@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { categoryRepository } from '../repositories/categoryRepository';
+import { archiveRepository } from '../repositories/archiveRepository';
 
-export const useCategoryDetails = (categoryName: string) => {
+export const useArchive = (categoryName: string) => {
     const [meals, setMeals] = useState<any[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
@@ -9,7 +9,7 @@ export const useCategoryDetails = (categoryName: string) => {
         const fetchMeals = async () => {
             setLoading(true);
 
-            const data = await categoryRepository.getMealsByCategory(categoryName);
+            const data = await archiveRepository.getMealsByCategory(categoryName);
             console.log(data);
 
             setMeals(data);

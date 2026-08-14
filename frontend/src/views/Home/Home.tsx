@@ -29,7 +29,7 @@ const Home: React.FC = () => {
     const totalPages = Math.ceil(categories.length / itemsPerPage);
 
     const handleCategoryClick = (name: string) => {
-        navigate(`/category/${name}`);
+        navigate(`/archive/${name}`);
     };
 
     const handleNext = () => {
