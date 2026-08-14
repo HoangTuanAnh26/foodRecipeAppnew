@@ -12,24 +12,14 @@ const Header: React.FC = () => {
     };
 
     return (
-        <header className="z-50 max-w-7xl mx-auto border-b-0 md:border-b px-6">
+        <header className="z-50 max-w-7xl mx-auto border-b-0 px-6">
             <div className="flex h-16 md:h-32 items-center justify-between">
                 <Link to="/" className="text-2xl md:text-5xl font-extrabold tracking-tight text-slate-900 hover:opacity-90 transition-opacity">Food Recipe</Link>
                 <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600 dark:text-slate-300">
                     <Link className="transition-colors hover:text-indigo-600 dark:text-black" to="/">Home</Link>
                     <Link className="transition-colors hover:text-indigo-600 dark:text-black" to="#">Favorites</Link>
-                    {/* <a
-                    to="#"
-                    className="nav-item"
-                    style={{ marginRight: "20px" }}
-                    onClick={(e) => {
-                        e.preventDefault(); // ❗ chặn hành vi mặc định
-                        window.history.back();
-                    }}
-                >
-                    Back
-                </a> */}
-                    <Link className="transition-colors hover:text-indigo-600 dark:text-black" to="#">Category Details</Link>
+                    <Link className="transition-colors hover:text-indigo-600 dark:text-black" to="#">Category</Link>
+                    {/* <Link className="transition-colors hover:text-indigo-600 dark:text-black" to="#">Archive</Link> */}
                     <Link className="transition-colors hover:text-indigo-600 dark:text-black" to="#">Profile</Link>
 
                     <div className="flex items-center gap-5">
@@ -67,7 +57,11 @@ const Header: React.FC = () => {
                     </Link>
 
                     <Link to="#" onClick={() => setIsOpen(false)}>
-                        Category Details
+                        Category
+                    </Link>
+
+                    <Link to="#" onClick={() => setIsOpen(false)}>
+                        Archive
                     </Link>
                 </nav>
             )}
