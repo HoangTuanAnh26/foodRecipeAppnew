@@ -1,0 +1,37 @@
+Lộ trình xây dựng Backend + Batch
+
+Giai đoạn A — Chuẩn bị môi trường (đã xong)
+
+✅ Step 1: Cài Git, Docker Desktop, AWS CLI
+
+Giai đoạn B — Khởi tạo project & Database local
+
+Step 2: Tạo project Laravel bằng Docker (Composer container)
+Step 3: Thiết lập PostgreSQL bằng Docker Compose (viết docker-compose.yml chạy PHP + PostgreSQL cùng lúc)
+Step 4: Cấu hình Laravel kết nối PostgreSQL (.env, kiểm tra php artisan migrate)
+
+Giai đoạn C — Xây dựng cấu trúc dữ liệu
+
+Step 5: Tạo Migration cho 4 bảng: categories, meals, ingredients, meal_ingredients
+Step 6: Tạo Model tương ứng (Category, Recipe/Meal, Ingredient, MealIngredient)
+
+Giai đoạn D — Xây dựng logic Batch
+
+Step 7: Viết MealDbService (gọi API TheMealDB: categories.php, filter.php, lookup.php)
+Step 8: Viết CloneMealDataCommand (Artisan Command php artisan meals:seed) theo đúng luồng Step 1→5 trong 内部設計書 (retry, error handling, logging)
+Step 9: Chạy thử batch local bằng php artisan meals:seed, kiểm tra dữ liệu trong PostgreSQL
+
+Giai đoạn E — Đóng gói & chuẩn bị lên AWS
+
+Step 10: Viết Dockerfile cho batch (image chạy được lệnh meals:seed độc lập, không cần web server)
+Step 11: Build & test Docker image đó chạy local (mô phỏng đúng cách AWS Batch sẽ chạy)
+
+Giai đoạn F — Triển khai AWS Batch
+
+Step 12: Tạo tài khoản/IAM user AWS, cấu hình aws configure
+Step 13: Tạo Amazon ECR repository, đẩy (push) Docker image lên
+Step 14: Tạo VPC + NAT Gateway (để job trong VPC riêng vẫn gọi được internet ra TheMealDB API)
+Step 15: Tạo AWS Batch: Compute Environment (Fargate) → Job Queue → Job Definition
+Step 16: Kết nối Batch job tới PostgreSQL (RDS PostgreSQL trong VPC, hoặc cấu hình để job gọi tới DB bạn có)
+Step 17: Submit Job và theo dõi qua CloudWatch Logs
+Step 18: Kiểm tra dữ liệu cuối cùng trong DB, xác nhận batch chạy thành công
