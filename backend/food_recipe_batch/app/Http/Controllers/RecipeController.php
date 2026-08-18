@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\RecipeResource;
 use App\Models\Category;
 use App\Models\Meal;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class RecipeController
 
         $meals = $category->meals;
 
-        return $meals;
+        return RecipeResource::collection($category->meals);
     }
 
     public function show($id)
@@ -31,13 +32,13 @@ class RecipeController
             return response()->json([], 404);
         }
 
-        return $meal;
+        return new RecipeResource($meal);
     }
 
     public function random()
     {
         $meal = Meal::inRandomOrder()->first();
 
-        return $meal;
+        return new RecipeResource($meal);
     }
 }
