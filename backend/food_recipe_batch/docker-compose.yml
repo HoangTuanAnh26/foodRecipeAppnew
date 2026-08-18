@@ -8,6 +8,8 @@ services:
     tty: true
     networks:
       - food_recipe_net
+    ports: 
+      - "8000:8000"
 
   db:
     image: postgres:16
